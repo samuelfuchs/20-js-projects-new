@@ -69,7 +69,6 @@ function nextSong() {
     if (songIndex > songs.length -1) {
         songIndex = 0
     }
-    console.log(songIndex)
     loadSong(songs[songIndex])
     playSong()
 }
@@ -80,7 +79,6 @@ function prevSong() {
     if (songIndex < 0) {
         songIndex = songs.length -1
     }
-    console.log(songIndex)
     loadSong(songs[songIndex])
     playSong()
 }
