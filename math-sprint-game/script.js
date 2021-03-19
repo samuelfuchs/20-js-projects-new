@@ -32,6 +32,12 @@ const wrongFormat = [];
 
 // Scroll
 
+// Displays Game Page
+function showGamePage() {
+  gamePage.hidden = false
+  countdownPage.hidden = true
+}
+
 // Get Random Number up to a max number
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max))
@@ -71,6 +77,21 @@ function createEquations() {
 
   shuffle(equationsArray)
   console.log('equations array:', equationsArray)
+  equationsToDOM()
+}
+// Add Equations to DOM
+function equationsToDOM() {
+  equationsArray.forEach((equation) => {
+    // Item
+    const item = document.createElement('div')
+    item.classList.add('item')
+    // Equation Text
+    const equationText = document.createElement('h1')
+    equationText.textContent = equation.value
+    // Append
+    item.appendChild(equationText)
+    itemContainer.appendChild(item)
+  })
 }
 
 // Dynamically adding correct/incorrect equations
@@ -113,6 +134,7 @@ function showCountdown() {
   splashPage.hidden = true
   countdownStart()
   createEquations()
+  setTimeout(showGamePage, 400)
 }
 
 // Get the value from selected radio button
