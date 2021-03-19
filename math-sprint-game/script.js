@@ -76,8 +76,6 @@ function createEquations() {
   }
 
   shuffle(equationsArray)
-  console.log('equations array:', equationsArray)
-  equationsToDOM()
 }
 // Add Equations to DOM
 function equationsToDOM() {
@@ -95,25 +93,28 @@ function equationsToDOM() {
 }
 
 // Dynamically adding correct/incorrect equations
-// function populateGamePage() {
-//   // Reset DOM, Set Blank Space Above
-//   itemContainer.textContent = '';
-//   // Spacer
-//   const topSpacer = document.createElement('div');
-//   topSpacer.classList.add('height-240');
-//   // Selected Item
-//   const selectedItem = document.createElement('div');
-//   selectedItem.classList.add('selected-item');
-//   // Append
-//   itemContainer.append(topSpacer, selectedItem);
+function populateGamePage() {
+  // Reset DOM, Set Blank Space Above
+  itemContainer.textContent = '';
+  // Spacer
+  const topSpacer = document.createElement('div');
+  topSpacer.classList.add('height-240');
+  // Selected Item
+  const selectedItem = document.createElement('div');
+  selectedItem.classList.add('selected-item');
+  // Append
+  itemContainer.append(topSpacer, selectedItem);
 
-//   // Create Equations, Build Elements in DOM
+  // Create Equations, Build Elements in DOM
+  createEquations()
+  equationsToDOM()
 
-//   // Set Blank Space Below
-//   const bottomSpacer = document.createElement('div');
-//   bottomSpacer.classList.add('height-500');
-//   itemContainer.appendChild(bottomSpacer);
-// }
+  // Set Blank Space Below
+  const bottomSpacer = document.createElement('div');
+  bottomSpacer.classList.add('height-500');
+  itemContainer.appendChild(bottomSpacer);
+}
+
 // Displays 3, 2, 1, Go!
 function countdownStart() {
   countdown.textContent = '3'
@@ -133,7 +134,7 @@ function showCountdown() {
   countdownPage.hidden = false
   splashPage.hidden = true
   countdownStart()
-  createEquations()
+  populateGamePage()
   setTimeout(showGamePage, 400)
 }
 
