@@ -15,7 +15,7 @@ function imageMode(color) {
     image2.src = `img/undraw_feeling_proud_${color}.svg`
     image3.src = `img/undraw_conceptual_idea_${color}.svg`
 }
-
+//this is a comment
 
 function toggleDarkLightMode(isDark) {
     nav.style.backgroundColor = isDark ? 'rgb(0 0 0 / 50%)' : 'rgb(255 255 255 / 50%)';
