@@ -30,9 +30,23 @@ let equationObject = {};
 const wrongFormat = [];
 
 // Time
+let timer
+let timePlayed = 0
+let baseTime = 0
+let penaltyTime = 0
+let finalTime = 0
+let finalTimeDisplay = '0.0s'
 
 // Scroll
 let valueY = 0
+
+// Start timer when game page is clicked
+function startTimer() {
+  // Reset times
+  timePlayed = 0
+  penaltyTime = 0
+  finalTime = 0
+}
 
 // Scroll, Store user selection in playerGuessArray
 function select(guessedTrue) {
@@ -185,3 +199,4 @@ startForm.addEventListener('click', () =>{
 
 // Event Listeners
 startForm.addEventListener('submit', selectQuestionAmount)
+gamePage.addEventListener('click', startTimer)
