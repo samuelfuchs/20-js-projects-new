@@ -40,6 +40,20 @@ let finalTimeDisplay = '0.0s'
 // Scroll
 let valueY = 0
 
+// Show Score Page
+
+
+// Format & Display Time in DOM
+function scoresToDOM() {
+  finalTimeDisplay = finalTime.toFixed(1)
+  baseTime = timePlayed.toFixed(1)
+  penaltyTime = penaltyTime.toFixed(1)
+  baseTimeEl.textContent = `Base Time: ${baseTime}`
+  penaltyTimeEl.textContent = `Penalty: +${penaltyTime}s`
+  finalTimeEl.textContent = `${finalTimeDisplay}s`
+  showScorePage()
+}
+
 // Stop Timer, Process Results, go to Score Page
 function checkTime() {
   console.log(timePlayed)
@@ -57,6 +71,7 @@ function checkTime() {
     })
     finalTime = timePlayed + penaltyTime
     console.log('time', timePlayed, 'penalty', penaltyTime, 'final', finalTime)
+    scoresToDOM()
   }
 }
 
