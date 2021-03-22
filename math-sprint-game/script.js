@@ -281,7 +281,7 @@ function showCountdown() {
   splashPage.hidden = true
   countdownStart()
   populateGamePage()
-  setTimeout(showGamePage, 400)
+  setTimeout(showGamePage, 4000)
 }
 
 // Get the value from selected radio button
