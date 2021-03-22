@@ -85,9 +85,15 @@ function updateBestScore() {
       // Return Best Score as number with one decimal
       const savedBestScore = Number(bestScoreArray[index].bestScore)
       // Update if the new final score is less or replacing zero
-      if ( savedBestScore)
+      if ( savedBestScore === 0 || savedBestScore > finalTime) {
+        bestScoreArray[index].bestScore = finalTimeDisplay
+      }
     }
   })
+  // Update Splash Page
+  bestScoresToDOM()
+  // Save to Local Storage
+  localStorage.setItem('bestScores', JSON.stringify(bestScoreArray))
 }
 
 // Reset Game
@@ -119,6 +125,7 @@ function scoresToDOM() {
   baseTimeEl.textContent = `Base Time: ${baseTime}s`
   penaltyTimeEl.textContent = `Penalty: +${penaltyTime}s`
   finalTimeEl.textContent = `${finalTimeDisplay}s`
+  updateBestScore()
   // Scroll to Top, go to Score Page
   itemContainer.scrollTo({ top: 0, bahavior: 'instant' })
   showScorePage()
