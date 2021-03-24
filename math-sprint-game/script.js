@@ -322,5 +322,3 @@ gamePage.addEventListener('click', startTimer)
 
 // On Load
 getSavedBestScores()
-
-//On loads
